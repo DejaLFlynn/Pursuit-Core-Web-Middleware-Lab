@@ -21,7 +21,7 @@ next()
 app.use("/animal/:animalid",isAnimal)
 
 app.get("/animal",(req,res)=>{
-res.json()
+res.json(animalObject)
 })
 
 app.get("/animal/:animalid",(req,res)=>{
