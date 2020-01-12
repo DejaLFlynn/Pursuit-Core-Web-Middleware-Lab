@@ -22,6 +22,27 @@ const isAnimal =(req,res,next)=>{
     }
 next()
 }
+const isRandom=(req,res,next)=>{
+    let floor = Number(req.params.floor)
+    let ceil = Number(req.params.ceil)
+    let num = generateSpread(floor,ceil)
+    res.json({
+        status: "success",
+        range: [floor,ceil],
+        numPicker: num
+    })
+    next()
+}
+const generateSpread = (floor,ceil)=>{
+    let arr = []
+    for(let i=floor; floor<ceil; i++){
+        arr.push(i)
+        floor++
+
+    }
+}
+
+
 
 app.use("/animal/:animalid",isAnimal)
 
