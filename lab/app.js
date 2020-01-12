@@ -4,16 +4,21 @@ const port = 3000
 const app = express()
 app.use(cors())
 
-const animalObject = ["zebra","lion" ,"dog"]
+const animalObject = 
+{
+    animals: ["zebra","dog","lion"],
+    verdict: "",
 
 
-
+}
 
 const isAnimal =(req,res,next)=>{
-        if(animalObject.includes(req.params.animalid)){ 
-            console.log("test")
+        if(animalObject.animals.includes(req.params.animalid)){ 
+            animalObject.verdict = "true"
+             res.json(animalObject)
    }else{
-        res.json("false")
+    animalObject.verdict = "false"
+        res.json(animalObject)
     }
 next()
 }
